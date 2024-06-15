@@ -106,6 +106,14 @@ export default function Form({ categories }: Props) {
           </Box>
           <PaymentMethodFormControl />
           <PurchaseLocationFormControl />
+          <FormControl id='transactionDate' isRequired>
+            <FormLabel>Transaction Date</FormLabel>
+            <Input
+              name='date'
+              type='date'
+              defaultValue={new Date().toISOString().substring(0, 10)}
+            />
+          </FormControl>
           <FormControl id='recurring'>
             <HStack justify='space-between'>
               <FormLabel>Recurring</FormLabel>

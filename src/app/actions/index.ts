@@ -50,7 +50,7 @@ export async function createTransaction(formData: FormData) {
       transactionData[key] = Number(value)
     } else if (key === 'recurring') {
       transactionData[key] = value === 'on'
-    } else if (key === 'nextRunDate') {
+    } else if (key === 'nextRunDate' || key === 'date') {
       transactionData[key] = new Date(value as string).toISOString()
       console.log(transactionData[key])
     } else {
