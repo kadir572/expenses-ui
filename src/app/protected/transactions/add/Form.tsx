@@ -22,7 +22,6 @@ import { useEffect, useState } from 'react'
 import NameFormControl from './formControls/NameFormControl'
 import DescriptionFormControl from './formControls/DescriptionFormControl'
 import AmountFormControl from './formControls/AmountFormControl'
-import CurrencyFormControl from './formControls/CurrencyFormControl'
 import PaymentMethodFormControl from './formControls/PaymentMethodFormControl'
 import PurchaseLocationFormControl from './formControls/PurchaseLocationFormControl'
 
@@ -101,7 +100,6 @@ export default function Form({ categories }: Props) {
           <Box w='100%'>
             <HStack spacing={spacing}>
               <AmountFormControl />
-              <CurrencyFormControl />
             </HStack>
           </Box>
           <PaymentMethodFormControl />

@@ -1,12 +1,3 @@
-export enum Currency {
-  usd = 'usd',
-  eur = 'eur',
-  gbp = 'gbp',
-  chf = 'chf',
-  pln = 'pln',
-  try = 'try',
-}
-
 export enum PaymentMethod {
   card = 'card',
   cash = 'cash',

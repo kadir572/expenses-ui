@@ -34,11 +34,11 @@ export default function LoginForm() {
       <form action={formAction}>
         <FormControl id='username' mb='4'>
           <FormLabel>Username</FormLabel>
-          <Input type='text' name='username' />
+          <Input type='text' name='username' placeholder='Enter username' />
         </FormControl>
         <FormControl id='password' mb='4'>
           <FormLabel>Password</FormLabel>
-          <Input type='password' name='password' />
+          <Input type='password' name='password' placeholder='Enter password' />
         </FormControl>
         <Button type='submit' colorScheme='teal' width='full'>
           Submit
