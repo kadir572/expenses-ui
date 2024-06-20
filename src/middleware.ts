@@ -23,6 +23,7 @@ export async function middleware(req: NextRequest) {
         ? 'authjs.session-token'
         : 'authjs.session-token',
   })
+
   const url = req.nextUrl.clone()
 
   // Allow requests for static files and Next.js internals
@@ -35,7 +36,11 @@ export async function middleware(req: NextRequest) {
     return NextResponse.next()
   }
 
-  if (token) {
+  if (
+    token &&
+    token.refreshTokenExpires &&
+    Date.now() < token.refreshTokenExpires
+  ) {
     // Redirect authenticated users away from the login page
     if (url.pathname === '/auth/login' || url.pathname === '/') {
       return NextResponse.redirect(new URL('/protected', req.url))

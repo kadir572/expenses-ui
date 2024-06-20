@@ -2,6 +2,7 @@ import { Text } from '@chakra-ui/react'
 import Form from './Form'
 import { auth } from '@/auth'
 import { Category } from '@/lib/types/Category'
+import Box from '@mui/material/Box'
 
 export default async function AddTransactionPage() {
   const session = await auth()
@@ -16,10 +17,13 @@ export default async function AddTransactionPage() {
     }
   )
   const data = (await categoriesRes.json()) as Category[]
+
+  if (!data) return null
   return (
     <>
-      {data && <Form categories={data} />}
-      {!data && <Text>500 - Server Error</Text>}
+      <Box>Add Transaction Page</Box>
+      {/* {data && <Form categories={data} />} */}
+      {/* {!data && <Text>500 - Server Error</Text>} */}
     </>
   )
 }

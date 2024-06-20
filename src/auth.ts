@@ -48,13 +48,16 @@ export const { handlers, auth, signIn, signOut, unstable_update } = NextAuth({
           refreshToken: data.refreshToken,
           username: data.user.username,
           role: data.user.role,
+          userID: data.user.id,
         }
       },
     }),
   ],
   callbacks: {
     async jwt({ token, user, trigger, session }) {
+      // If token present but jwt not called by signIn
       if (trigger !== 'signIn' && token.accessTokenExpires) {
+        // if access token expired
         if (Date.now() >= token.accessTokenExpires) {
           try {
             const res = await fetch(
@@ -78,6 +81,7 @@ export const { handlers, auth, signIn, signOut, unstable_update } = NextAuth({
               jwtDecode<DecodedToken>(data.accessToken).exp * 1000
             token.refreshTokenExpires =
               jwtDecode<DecodedToken>(data.refreshToken).exp * 1000
+            console.log('tokens refreshed')
           } catch (error) {
             token.error = 'RefreshAccessTokenError'
             console.log('refresh token expired, logging out')
@@ -88,6 +92,7 @@ export const { handlers, auth, signIn, signOut, unstable_update } = NextAuth({
       if (user && user.accessToken) {
         token.username = user.username
         token.role = user.role
+        token.userID = user.userID
         token.accessToken = user.accessToken
         token.refreshToken = user.refreshToken
         token.accessTokenExpires =
@@ -101,6 +106,7 @@ export const { handlers, auth, signIn, signOut, unstable_update } = NextAuth({
       if (token && token.accessToken) {
         session.username = token.username
         session.role = token.role
+        session.userID = token.userID
         session.accessToken = token.accessToken
         session.refreshToken = token.refreshToken
         session.accessTokenExpires = token.accessTokenExpires

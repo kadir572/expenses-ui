@@ -5,12 +5,15 @@ import { IconButton } from '@chakra-ui/react'
 import { AddIcon } from '@chakra-ui/icons'
 import { redirect } from 'next/navigation'
 import AddTransactionButton from './AddTransactionButton'
+import Typography from '@mui/material/Typography'
+import Box from '@mui/material/Box'
 
 export default async function ProtectedPage() {
   return (
-    <div>
-      <h1>Dashbaord</h1>
-      <AddTransactionButton />
-    </div>
+    <Box>
+      <Typography variant='h5' component='h1'>
+        Dashboard
+      </Typography>
+    </Box>
   )
 }

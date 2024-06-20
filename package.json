@@ -11,20 +11,26 @@
   "dependencies": {
     "@chakra-ui/icons": "^2.1.1",
     "@chakra-ui/react": "^2.8.2",
+    "@emotion/cache": "^11.11.0",
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
     "@fortawesome/fontawesome-svg-core": "^6.5.2",
     "@fortawesome/free-brands-svg-icons": "^6.5.2",
     "@fortawesome/free-solid-svg-icons": "^6.5.2",
     "@fortawesome/react-fontawesome": "^0.2.2",
+    "@mui/icons-material": "^5.15.20",
+    "@mui/material": "^5.15.20",
+    "@mui/material-nextjs": "^5.15.11",
     "@tanstack/react-query": "^5.40.1",
+    "date-fns": "^3.6.0",
     "framer-motion": "^11.2.10",
     "jwt-decode": "^4.0.0",
     "next": "14.2.3",
     "next-auth": "^5.0.0-beta.18",
     "react": "^18",
     "react-dom": "^18",
-    "zod": "^3.23.8"
+    "zod": "^3.23.8",
+    "zustand": "^4.5.2"
   },
   "devDependencies": {
     "@types/node": "^20",

@@ -1,5 +1,6 @@
 'use server'
 
+import { Transaction } from '@/lib/types/transaction.type'
 import { auth, signIn, signOut } from '../../auth'
 import { AuthError } from 'next-auth'
 
@@ -70,5 +71,56 @@ export async function createTransaction(formData: FormData) {
   console.log(res.status)
   const data = await res.json()
   console.log(data)
+  return data
+}
+
+export async function getTransactions(token: string): Promise<Transaction[]> {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/transactions`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+      Accept: 'application/json',
+    },
+  })
+  const data = await res.json()
+  return data
+}
+
+export async function getTransaction(
+  id: string,
+  token: string
+): Promise<Transaction> {
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/transactions/${id}`,
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        Accept: 'application/json',
+      },
+    }
+  )
+
+  const data = await res.json()
+  return data
+}
+
+export async function getTransactionsMonthly(token: string): Promise<
+  {
+    key: string
+    month: number
+    year: number
+    transactions: Transaction[]
+  }[]
+> {
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/transactions/monthly`,
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        Accept: 'application/json',
+      },
+    }
+  )
+
+  const data = await res.json()
   return data
 }

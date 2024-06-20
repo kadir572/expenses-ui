@@ -3,8 +3,11 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import AuthWrapper from '@/AuthWrapper'
 import AuthReloader from './AuthReloader'
-import { ChakraProvider } from '@chakra-ui/react'
+import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter'
+import { ThemeProvider } from '@mui/material/styles'
 import QueryClientWrapper from './QueryClientWrapper'
+import theme from '@/theme'
+import { CssBaseline } from '@mui/material'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -24,7 +27,12 @@ export default async function RootLayout({
         <AuthWrapper>
           <AuthReloader>
             <QueryClientWrapper>
-              <ChakraProvider>{children}</ChakraProvider>
+              <AppRouterCacheProvider>
+                <ThemeProvider theme={theme}>
+                  <CssBaseline />
+                  {children}
+                </ThemeProvider>
+              </AppRouterCacheProvider>
             </QueryClientWrapper>
           </AuthReloader>
         </AuthWrapper>

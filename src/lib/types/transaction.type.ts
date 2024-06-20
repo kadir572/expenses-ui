@@ -1,3 +1,6 @@
+import { Category, Subcategory } from './Category'
+import { User } from './user.type'
+
 export enum PaymentMethod {
   card = 'card',
   cash = 'cash',
@@ -15,4 +18,26 @@ export enum Interval {
   weekly = 'weekly',
   monthly = 'monthly',
   yearly = 'yearly',
+}
+
+export type Transaction = {
+  id: number
+  name: string
+  description?: string
+  amount: number
+  source: string
+  categoryId: number
+  subcategoryId: number
+  paymentMethod: PaymentMethod
+  purchaseLocation: PurchaseLocation
+  date: Date
+  recurring: boolean
+  interval?: Interval
+  nextRunDate?: Date
+  userId: number
+  createdAt: Date
+  updatedAt: Date
+  user: User
+  category: Category
+  subcategory: Subcategory
 }

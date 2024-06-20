@@ -10,6 +10,7 @@ export default function Footer() {
         py={4}
         bg='teal.500'
         color='white'
+        bgColor='red'
       >
         <Box textAlign='center'>
           <Text fontSize='sm'>
