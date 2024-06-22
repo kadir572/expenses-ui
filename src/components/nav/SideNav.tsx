@@ -61,7 +61,7 @@ export default function SideNav() {
           <ListItem disablePadding>
             <Link
               component={NextLink}
-              href='/protected/transactions'
+              href='/protected/transactions/all'
               sx={{
                 textDecoration: 'none',
                 color: 'inherit',

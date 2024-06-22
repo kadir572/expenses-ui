@@ -26,7 +26,7 @@ import PaymentMethodFormControl from './formControls/PaymentMethodFormControl'
 import PurchaseLocationFormControl from './formControls/PurchaseLocationFormControl'
 
 type Props = {
-  categories: Category[]
+  categories: Category[],
 }
 
 export default function Form({ categories }: Props) {
@@ -41,10 +41,9 @@ export default function Form({ categories }: Props) {
   const formWidth = useBreakpointValue({ base: 'full', md: 'md' })
   const spacing = useBreakpointValue({ base: '4', md: '6' })
 
-  const [isRecurring, setIsRecurring] = useState<boolean>(false)
-  const [selectedCategory, setSelectedCategory] = useState<Category | null>(
-    null
-  )
+  const [isRecurring, setIsRecurring] = useState < boolean > false
+  const [selectedCategory, setSelectedCategory] =
+    (useState < Category) | (null > null)
 
   const handleCategoryChange = (category: Category) => {
     setSelectedCategory(category)

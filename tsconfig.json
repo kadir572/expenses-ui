@@ -26,7 +26,8 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "next-auth.d.ts"
+    "next-auth.d.ts",
+    "src/app/protected/transactions/all/loading.xts"
   ],
   "exclude": ["node_modules"]
 }

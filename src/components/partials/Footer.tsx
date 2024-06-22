@@ -1,27 +1,28 @@
-import { Box, Flex, Text } from '@chakra-ui/react'
+import Box from '@mui/material/Box'
+import Typography from '@mui/material/Typography'
 
 export default function Footer() {
   return (
-    <footer>
-      <Flex
-        as='footer'
-        align='center'
-        justify='center'
-        py={4}
-        bg='teal.500'
-        color='white'
-        bgColor='red'
-      >
-        <Box textAlign='center'>
-          <Text fontSize='sm'>
-            &copy; {new Date().getFullYear()} Expense Tracker. All rights
-            reserved.
-          </Text>
-          <Text fontSize='sm' mt={2}>
-            Made with ❤️ by Kadir Karadavut
-          </Text>
-        </Box>
-      </Flex>
-    </footer>
+    <Box
+      component='footer'
+      sx={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        py: 4,
+        bgColor: 'red',
+        color: 'white',
+      }}
+    >
+      <Box textAlign='center'>
+        <Typography fontSize='sm'>
+          &copy; {new Date().getFullYear()} Expense Tracker. All rights
+          reserved.
+        </Typography>
+        <Typography fontSize='sm' mt={2}>
+          Made with ❤️ by Kadir Karadavut
+        </Typography>
+      </Box>
+    </Box>
   )
 }

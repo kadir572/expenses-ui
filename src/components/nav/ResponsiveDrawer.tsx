@@ -53,7 +53,7 @@ export default function ResponsiveDrawer() {
           <Link
             onClick={() => handleDrawerClose()}
             component={NextLink}
-            href='/protected/transactions'
+            href='/protected/transactions/all'
             sx={{
               textDecoration: 'none',
               color: 'inherit',

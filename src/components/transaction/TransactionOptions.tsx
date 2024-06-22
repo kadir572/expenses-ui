@@ -71,7 +71,7 @@ export default function TransactionOptions({ userId, transactionProp }: Props) {
           <IconButton
             aria-label='close'
             LinkComponent={Link}
-            href='/protected/transactions'
+            href='/protected/transactions/all'
           >
             <CloseIcon />
           </IconButton>
